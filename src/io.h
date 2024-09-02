@@ -6,7 +6,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-uint8_t inb(uint16_t port) {
+static uint8_t inb(uint16_t port) {
     uint8_t ret;
     __asm__ volatile ( "inb %w1, %b0"
                    : "=a"(ret)
@@ -15,15 +15,15 @@ uint8_t inb(uint16_t port) {
     return ret;
 }
 
-void outb(uint16_t port, uint8_t val) {
+static void outb(uint16_t port, uint8_t val) {
     __asm__ volatile ( "outb %b0, %w1" : : "a"(val), "Nd"(port) : "memory");
 }
 
-void outw(uint16_t port, uint16_t val) {
+static void outw(uint16_t port, uint16_t val) {
     __asm__ volatile ( "outw %0, %1" : : "a"(val), "Nd"(port) : "memory");
 }
 
-uint16_t inw(uint16_t port) {
+static uint16_t inw(uint16_t port) {
     uint16_t ret;
     __asm__ volatile ( "inw %1, %0" : "=a"(ret) : "Nd"(port) : "memory");
     return ret;
