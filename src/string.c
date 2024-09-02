@@ -4,7 +4,7 @@
 
 #include "string.h"
 
-size_t strlen(const char* str) 
+size_t ku_strlen(const char* str) 
 {
     size_t len = 0;
     while (str[len])
@@ -12,12 +12,12 @@ size_t strlen(const char* str)
     return len;
 }
 
-void memcpy(char* dest, char* from, size_t n) {
+void ku_memcpy(char* dest, char* from, size_t n) {
     for (int i = 0; i < n; i++)
         dest[i] = from[i];
 }
 
-bool strcmp(const char* str1, const char* str2) {
+bool ku_strcmp(const char* str1, const char* str2) {
     int str1len = strlen(str1);
     int str2len = strlen(str2);
     if (str1len != str2len) return false;
@@ -27,13 +27,13 @@ bool strcmp(const char* str1, const char* str2) {
     return true;
 }
 
-void memset(uint8_t *array, uint8_t value, size_t size) {
+void ku_memset(uint8_t *array, uint8_t value, size_t size) {
     for (size_t i = 0; i < size; i++) {
         array[i] = value;
     }
 }
 
-void addCharToString(char *str, char c) {
+void ku_addCharToString(char *str, char c) {
     // Iterate to find the end of the string
     int i = 0;
     while (str[i] != '\0') {
@@ -45,7 +45,7 @@ void addCharToString(char *str, char c) {
     str[i + 1] = '\0';
 }
 
-void removeLastChar(char *str) {
+void ku_removeLastChar(char *str) {
     for (int i = strlen(str); i > 0; i--) {
         if (str[i] != '\0') {
             str[i] = '\0';
@@ -54,7 +54,7 @@ void removeLastChar(char *str) {
     }
 }
 
-void reverse(char str[], int length) {
+void ku_reverse(char str[], int length) {
     int start = 0;
     int end = length - 1;
     while (start < end) {
@@ -66,7 +66,7 @@ void reverse(char str[], int length) {
     }
 }
 
-void uint64ToBinaryString(uint64_t num, char *buf) {
+void ku_uint64ToBinaryString(uint64_t num, char *buf) {
     char buffer[65];
     int idx = 0;
     if (num == 0) {
@@ -78,12 +78,12 @@ void uint64ToBinaryString(uint64_t num, char *buf) {
         }
     }
     buffer[idx] = 0;
-    reverse(buffer, idx);
+    ku_reverse(buffer, idx);
     for (int i = 0; i <= idx; i++)
         buf[i] = buffer[i];
 }
 
-void uint16ToString(uint16_t num, char *str) {
+void ku_uint16ToString(uint16_t num, char *str) {
     // Define a buffer large enough to hold the maximum uint16_t value in decimal
     char buffer[6];  // Max length of uint16_t in decimal is 5 digits, plus null terminator
     // Index to fill the buffer
@@ -101,14 +101,14 @@ void uint16ToString(uint16_t num, char *str) {
     // Null-terminate the buffer
     buffer[index] = '\0';
     // Reverse the buffer
-    reverse(buffer, index);
+    ku_reverse(buffer, index);
     // Copy the reversed buffer to the output string (str)
     for (int i = 0; i <= index; ++i) {
         str[i] = buffer[i];
     } 
 }
 
-void uint32_to_hex_string(uint32_t num, char *str) {
+void ku_uint32_to_hex_string(uint32_t num, char *str) {
     // Define a buffer large enough to hold the maximum uint32_t value in hex
     char buffer[9];  // Max length of uint32_t in hex is 8 digits, plus null terminator
     // Index to fill the buffer
@@ -132,14 +132,14 @@ void uint32_to_hex_string(uint32_t num, char *str) {
     // Null-terminate the buffer
     buffer[index] = '\0';
     // Reverse the buffer
-    reverse(buffer, index);
+    ku_reverse(buffer, index);
     // Copy the reversed buffer to the output string (str)
     for (int i = 0; i <= index; ++i) {
         str[i] = buffer[i];
     }
 }
 
-void uint64ToHexString(uint64_t num, char *str) {
+void ku_uint64ToHexString(uint64_t num, char *str) {
     // Define a buffer large enough to hold the maximum uint64_t value in hex
     char buffer[17];  // Max length of uint64_t in hex is 16 digits, plus null terminator
     // Index to fill the buffer
@@ -163,7 +163,7 @@ void uint64ToHexString(uint64_t num, char *str) {
     // Null-terminate the buffer
     buffer[index] = '\0';
     // Reverse the buffer
-    reverse(buffer, index);
+    ku_reverse(buffer, index);
     // Copy the reversed buffer to the output string (str)
     for (int i = 0; i <= index; ++i) {
         str[i] = buffer[i];
@@ -180,7 +180,7 @@ int get_num_length(uint64_t num) {
     return length;
 }
 
-void uint64ToString(uint64_t num, char* str) {
+void ku_uint64ToString(uint64_t num, char* str) {
     // Get the length of the number
     int length = get_num_length(num);
 
@@ -195,7 +195,7 @@ void uint64ToString(uint64_t num, char* str) {
     } while (num > 0);
 }
 
-void uint32ToString(uint32_t num, char* str) {
+void ku_uint32ToString(uint32_t num, char* str) {
     // Get the length of the number
     int length = get_num_length(num);
 
@@ -210,7 +210,7 @@ void uint32ToString(uint32_t num, char* str) {
     } while (num > 0);
 }
 
-void uint8ToStr(uint8_t num, char* buffer) {
+void ku_uint8ToStr(uint8_t num, char* buffer) {
     int i = 0;
     if (num == 0) {
         buffer[i++] = '0';
@@ -223,10 +223,10 @@ void uint8ToStr(uint8_t num, char* buffer) {
         num = num / 10;
     }
     buffer[i] = '\0';
-    reverse(buffer, i);
+    ku_reverse(buffer, i);
 }
 
-void strcpy(char* dest, const char* src) {
+void ku_strcpy(char* dest, const char* src) {
     while (*src != '\0') {
         *dest = *src;
         dest++;
@@ -235,7 +235,7 @@ void strcpy(char* dest, const char* src) {
     *dest = '\0'; // Null-terminate the destination string
 }
 
-char* charToStr(char character) {
+char* ku_charToStr(char character) {
     static char wholeStr[2];
     wholeStr[0] = character;
     wholeStr[1] = '\0';
