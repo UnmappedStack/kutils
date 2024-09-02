@@ -1,6 +1,6 @@
 # KUtils
 
-KUtils is a simple header-only library for kernelspace usage. It allows for some basic string manipulation and simple IO functions.
+KUtils is a simple library for kernelspace usage. It allows for some basic string manipulation and simple IO functions.
 
 This is mostly just some functions that I found I use a lot in my own project which may be beneficial to you, as it's mostly pretty repetitive.
 
