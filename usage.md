@@ -32,7 +32,7 @@ outw(port, val);
 Where `port` is the port that you want to write to, and `val` is the value that you want to write to the port. No return value.
 
 ## String manipulation
-You'll need to copy over `src/string.h` from this repository into your project and include the file wherever you need it, then you can use these functions.
+You'll need to copy over `src/string.h` and `src/string.c` from this repository into your project and include the file wherever you need it, then you can use these functions.
 
 ### strlen
 Get the length of a null-terminated string. Syntax:
