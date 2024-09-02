@@ -4,7 +4,7 @@ KUtils is a simple header-only library for kernelspace usage. It allows for some
 
 This is mostly just some functions that I found I use a lot in my own project which may be beneficial to you, as it's mostly pretty repetitive.
 
-Read the documentation in [usage.md](https://github.com/kutils/blob/master/usage.md) on how to use the functions.
+Read the documentation in [usage.md](https://github.com/kutils/blob/main/usage.md) on how to use the functions.
 
 You may notice that a lot of these function names do not match up with the C standard library. *They are not supposed to.* Please do not complain about that because I will ignore you.
 
