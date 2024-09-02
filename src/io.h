@@ -1,5 +1,7 @@
 /* Basic port IO. This is very generic, so it's not under any license. */
 
+#pragma once
+
 #include <stddef.h>
 #include <stdint.h>
 #include <stdbool.h>
